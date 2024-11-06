@@ -112,11 +112,11 @@ return {
       local servers = {
         clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
         html = {},
         cssls = {},
-        pylsp = {},
-        jedi_language_server = {},
+        -- pylsp = {},
+        -- jedi_language_server = {},
         -- rust_analyzer = { function() return true end },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
