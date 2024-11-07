@@ -1,4 +1,21 @@
 #!/usr/bin/env bash
+set -euo pipefail
+
+# find which package manager then update
+release_file=/etc/os-release
+
+if grep -q "Pop" $release_file || grep -q "Ubuntu" $release_file
+then
+    sudo apt update
+    sudo apt dist-upgrade
+fi
+
+
+if grep -q "Arch" $release_file
+then 
+    sudo pacman -Syu
+fi
+
 
 # make sure we have pulled in and updated any submodules
 git submodule init
@@ -18,8 +35,8 @@ pwd
 
 # run the stow command for the passed in directory ($2) in location $1
 stowit() {
-    usr=$1
-    app=$2
+    local usr=$1
+    local app=$2
     # -v verbose
     # -R restow
     # -t target
