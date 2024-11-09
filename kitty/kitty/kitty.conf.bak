@@ -270,7 +270,9 @@
 #: so if you want to override it, place your value after the lines
 #: where the theme file is included.
 
- cursor_shape underline
+ cursor_shape beam
+
+ cursor_shape_unfocused block
 
 #: The cursor shape can be one of block, beam, underline. Note that
 #: when reloading the config this will be changed only if the cursor
@@ -281,7 +283,7 @@
 #: the cursor shape to beam at shell prompts. You can avoid this by
 #: setting shell_integration to no-cursor.
 
-# cursor_beam_thickness 1.5
+cursor_beam_thickness 1.5
 
 #: The thickness of the beam cursor (in pts).
 
@@ -381,7 +383,7 @@
 
 #: Mouse {{{
 
-# mouse_hide_wait 3.0
+mouse_hide_wait -3.0
 
 #: Hide mouse cursor after the specified number of seconds of the
 #: mouse not being used. Set to zero to disable mouse cursor hiding.
@@ -391,7 +393,7 @@
 #: much effort.
 
 # url_color #0087bd
-# url_style curly
+url_style straight
 
 #: The color and style for highlighting URLs on mouse-over. url_style
 #: can be one of: none, straight, double, curly, dotted, dashed.
@@ -811,7 +813,7 @@
 #: start_resizing_window. The cells value is used for horizontal
 #: resizing, and the lines value is used for vertical resizing.
 
-# window_border_width 15pt
+window_border_width 1pt
 
 #: The width of window borders. Can be either in pixels (px) or pts
 #: (pt). Values in pts will be rounded to the nearest number of pixels
@@ -884,7 +886,7 @@
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-# hide_window_decorations no
+hide_window_decorations yes
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only and titlebar-and-corners can be used
@@ -1007,7 +1009,7 @@
 #:     a mapping for the select_tab action which presents you with a list of
 #:     tabs and allows for easy switching to a tab.
 
-# tab_bar_align left
+tab_bar_align center
 
 #: The horizontal alignment of the tab bar, can be one of: left,
 #: center, right.
@@ -1039,7 +1041,7 @@
 #: The separator between tabs in the tab bar when using separator as
 #: the tab_bar_style.
 
- tab_powerline_style slanted
+ tab_powerline_style angled
 
 #: The powerline separator style between tabs in the tab bar when
 #: using powerline as the tab_bar_style, can be one of: angled,
@@ -1302,7 +1304,7 @@
 
 #: Advanced {{{
 
-# shell .
+shell nu
 
 #: The shell program to execute. The default value of . means to use
 #: whatever shell is set as the default shell for the current user.
@@ -1516,7 +1518,7 @@
 #: special value of ask means that kitty will ask before opening the
 #: link when clicked.
 
-# shell_integration enabled
+shell_integration no-cursor
 
 #: Enable shell integration on supported shells. This enables features
 #: such as jumping to previous prompts, browsing the output of the
@@ -2507,7 +2509,7 @@
 
 
 # BEGIN_KITTY_THEME
-# Everforest Dark Hard
+# Tokyo Night Storm
 include current-theme.conf
 # END_KITTY_THEME
 

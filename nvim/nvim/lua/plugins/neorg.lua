@@ -34,7 +34,9 @@ return {
             },
           },
           ['core.summary'] = {
-            strategy = 'by_path',
+            config = {
+              strategy = 'by_path',
+            },
           },
           ['core.completion'] = {
             config = {

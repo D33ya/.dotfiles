@@ -11,7 +11,7 @@ vim.opt.relativenumber = true
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = 'nc'
 
-vim.opt.foldlevel = 1
+vim.opt.foldlevel = 0
 
 vim.opt.expandtab = true
 
