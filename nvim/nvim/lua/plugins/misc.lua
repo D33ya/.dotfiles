@@ -64,7 +64,7 @@ return {
         lazygit:toggle()
       end
 
-      vim.api.nvim_set_keymap('n', '<C-l>', '<cmd>lua _lazygit_toggle()<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<C-g>', '<cmd>lua _lazygit_toggle()<CR>', { noremap = true, silent = true })
     end,
   },
   {
@@ -86,5 +86,11 @@ return {
         },
       }
     end,
+  },
+  {
+    'gpanders/nvim-parinfer',
+  },
+  {
+    'elkowar/yuck.vim',
   },
 }

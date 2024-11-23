@@ -6,6 +6,7 @@ return {
       require('dashboard').setup {
         theme = 'hyper',
         config = {
+          change_to_vcs_root = false,
           week_header = {
             enable = true,
           },
@@ -22,13 +23,13 @@ return {
               icon_hl = '@variable',
               desc = 'Files',
               group = 'Label',
-              action = 'Telescope find_files',
+              action = 'Telescope find_files cwd=',
               key = 'f',
             },
             {
               desc = ' Projects',
               group = 'DiagnosticHint',
-              action = 'Telescope project',
+              action = 'Telescope project cwd=',
               key = 'p',
             },
             {

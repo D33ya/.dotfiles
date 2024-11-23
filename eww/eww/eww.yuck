@@ -1,0 +1,135 @@
+;; Main Bar ;;
+(defwindow bar
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "98%"
+                      :height "10px"
+                      :anchor "top left")
+  :reserve (struts :side "top" :distance "4%")
+  (bar))
+
+(defwindow user
+  :montior 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "2.05%"
+                      :height "10px"
+                      :anchor "top right")
+  :reserve (struts :side "top" :distance "4%")
+  (profile))
+
+(defwidget bar []
+  (centerbox :orientation "h"
+    (music)
+    (workspaces)
+    (sidestuff)))
+
+;; User ;;
+(defwidget profile []
+  (box :orientation "v"
+    (box :orientation "v" :class "pfp")))
+    
+
+;; Controls
+(defwidget vol []
+  (eventbox :onhover "${EWW_CMD} update volum=true"
+            :onhoverlost "${EWW_CMD} update volum=false"
+    (box :orientation "h"
+         :space-evenly true
+      (revealer :transition "slideleft"
+                :reveal volum
+                :duration "550ms"
+        (scale :class "volbar"
+               :value "${current-volume * 100}"
+               :tooltip "Volume: ${current-volume * 100}%" 
+               :max 101
+               :min 0
+               :onchange "amixer -D pulse sset Master {}%"))
+      (button :onclick "pavucontrol"
+              :class "volume-icon" ""))))
+
+(defvar volum false)
+;; Stats 
+(defwidget metric [value]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+       :tooltip "${value}%"
+    (circular-progress :value value
+                       :start-at 0
+                       :thickness 3
+                       :clockwise true
+                       "")))
+;; Workspaces 
+
+;; Notifications
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :spacing "5" :orientation "h" :space-evenly false :halign "end"
+    (vol)
+    (metric :class "disk"
+            :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)})
+    (systray :spacing 2
+             :orientation "h"
+             :space-evenly true
+             :icon-size 16
+             :prepend-new true)
+    (button :onclick "eww open cal"
+            :onrightclick "eww close cal" time)))
+
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :halign "start"
+       :spacing 10
+    (button :onclick "qtile cmd-obj -o screen -f toggle_group -a 1" 1)
+    (button :onclick "qtile cmd-obj -o screen -f toggle_group -a 2" 2)
+    (button :onclick "qtile cmd-obj -o screen -f toggle_group -a 3" 3)
+    (button :onclick "qtile cmd-obj -o screen -f toggle_group -a 4" 4)
+    (button :onclick "qtile cmd-obj -o screen -f toggle_group -a 5" 5)
+    (button :onclick "qtile cmd-obj -o screen -f toggle_group -a 6" 6)
+    (button :onclick "qtile cmd-obj -o screen -f toggle_group -a 7" 7)
+    (button :onclick "qtile cmd-obj -o screen -f toggle_group -a 8" 8)
+    (button :onclick "qtile cmd-obj -o screen -f toggle_group -a 9" 9)))
+
+(defwidget music []
+  (box :class "music"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    {music != "" ? " ${music}" : ""}))
+
+(deflisten music :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(defpoll current-volume :interval "1s"
+  "./scripts/getvol")
+
+(defpoll time :interval "10s"
+  "date '+%H:%M %b %d, %Y'")
+
+(defpoll day :interval "60s"
+  "date '+%d'")
+(defpoll month :interval "60s"
+  "date '+%m")
+(defpoll year :interval "60s"
+  "date '+%Y'")
+
+
+
+(defwindow cal
+  :monitor 0
+  :windowtype "toolbar"
+  :geometry (geometry :x "-5px"
+                      :y "42px"
+                      :width "100px"
+                      :height "100px"
+                      :anchor "top right")
+  (calendar :month month
+            :day day
+            :year year))
+

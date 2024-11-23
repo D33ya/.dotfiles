@@ -13,12 +13,30 @@ from Groups import groups
 from Layouts import floating_layout
 from Screens import screens
 from libqtile import qtile, hook
-from Themes import theme
 from Layouts import init_layouts
+from catppuccin import PALETTE
+from qtile_extras.layout.decorations.borders import GradientBorder
 
-layout_defaults = theme.layouts
+colors = PALETTE.macchiato.colors
 
-widget_defaults = theme.widgets
+layout_defaults = dict(
+    border_focus=GradientBorder(
+        colours=[colors.green.hex, colors.maroon.hex, colors.red.hex],
+        radial=False,
+        points=[(0, 0), (1, 1)],
+    ),
+    border_normal=colors.overlay0.hex,
+    border_width=2,
+    margin=8,
+)
+
+widget_defaults = dict(
+    font="JetBrainsMono Nerd Font",
+    fontsize=16,
+    padding=4,
+    margin=10,
+    background=PALETTE.macchiato.colors.crust.hex,
+)
 
 extension_defaults = widget_defaults.copy()
 
@@ -51,5 +69,5 @@ wmname = "qtile"
 
 @hook.subscribe.startup_once
 def autostart():
-    script = os.path.expanduser("~/.scripts/autostart.sh")
+    script = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.run([script])

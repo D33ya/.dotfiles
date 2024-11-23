@@ -18,7 +18,7 @@ return {
             config = {
               folds = true,
               icon_preset = 'diamond',
-              init_open_folds = 'auto',
+              init_open_folds = 'never',
             },
           },
           ['core.dirman'] = {

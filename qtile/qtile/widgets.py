@@ -1,10 +1,7 @@
 from qtile_extras.widget.groupbox2 import GroupBoxRule, ScreenRule
 from qtile_extras import widget
 from Themes import theme as qtile_theme
-from qtile_extras.widget.decorations import (
-    PowerLineDecoration,
-    RectDecoration
-)
+from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 
 theme = qtile_theme.theme
 
@@ -18,13 +15,12 @@ rect = {
             use_widget_background=True,
             clip=True,
         ),
-    ], }
+    ],
+}
 
 powerline = {
-    "decorations": [
-        PowerLineDecoration()
-    ],
-    'padding': 18,
+    "decorations": [PowerLineDecoration()],
+    "padding": 18,
 }
 
 
@@ -40,38 +36,37 @@ def set_label(rule, box):
 
 
 volume = widget.Volume(
-    background=theme['background'],
+    background=theme["background"],
     emoji=True,
-    emoji_list=['', '', '', ''],
+    emoji_list=["", "", "", ""],
     scroll=True,
     width=20,
 )
 
 bluetooth = widget.Bluetooth(
-    background=theme['background'],
-    default_text='',
+    background=theme["background"],
+    default_text="",
 )
 
 status = widget.StatusNotifier(
-    background=theme['background'],
+    background=theme["background"],
 )
 
 power = widget.UPowerWidget(
-    battery_name='BAT1',
+    battery_name="BAT1",
     # padding_x=4,
-    background=theme['background'],
+    background=theme["background"],
 )
 
-clock = widget.Clock(background=theme['background'])
+clock = widget.Clock(background=theme["background"])
 
 space = widget.Spacer(
-    background=theme['background'],
-
+    background=theme["background"],
 )
 
 sep = widget.Sep(
-    background=theme['background'],
-    foreground=theme['background'],
+    background=theme["background"],
+    foreground=theme["background"],
 )
 
 group = widget.GroupBox2(
@@ -79,11 +74,9 @@ group = widget.GroupBox2(
     padding=5,
     rules=[
         GroupBoxRule().when(func=set_label),
-        GroupBoxRule(text_colour=theme["color3"]).when(
-            screen=ScreenRule.THIS),
-        GroupBoxRule(text_colour=theme["color2"]).when(
-            screen=ScreenRule.OTHER),
-        GroupBoxRule(text_colour=theme["color2"]).when()
+        GroupBoxRule(text_colour=theme["color3"]).when(screen=ScreenRule.THIS),
+        GroupBoxRule(text_colour=theme["color2"]).when(screen=ScreenRule.OTHER),
+        GroupBoxRule(text_colour=theme["color2"]).when(),
     ],
-    background=theme['background'],
+    background=theme["background"],
 )

@@ -1,0 +1,4 @@
+- keyboards: ["Logitech K350", "Logitech K540e"]
+
+  keymap:
+    capslock: leftctrl

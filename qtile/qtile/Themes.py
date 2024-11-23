@@ -4,15 +4,9 @@ from io import open
 from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 
 
-THEMES = path.expanduser('~/.config/qtile/themes/')
+THEMES = path.expanduser("~/.config/qtile/themes/")
 
-powerline = {
-    "decorations": [
-        PowerLineDecoration(
-
-        )
-    ]
-}
+powerline = {"decorations": [PowerLineDecoration()]}
 decoration_group = {
     "decorations": [
         RectDecoration(
@@ -30,52 +24,50 @@ decoration_group = {
 
 class themer:
     def __init__(self, path):
-        theme_file = open(path, 'r')
-        self._theme = dict(
-            findall(r'[^!]\*?(\w*)\:\s*#?(.*)', theme_file.read())
-        )
+        theme_file = open(path, "r")
+        self._theme = dict(findall(r"[^!]\*?(\w*)\:\s*#?(.*)", theme_file.read()))
         theme_file.close()
 
         self._widgets = {
-            'background': self.theme["color5"],
-            'foreground': self._theme["foreground"],
-            'active': self._theme["foreground"],
-            'font': "JetBrains Mono Nerd Font",
-            'fontsize': 16,
-            'padding': 10,
-            'border_color': self._theme["foreground"],
+            "background": self.theme["color5"],
+            "foreground": self._theme["foreground"],
+            "active": self._theme["foreground"],
+            "font": "JetBrains Mono Nerd Font",
+            "fontsize": 16,
+            "padding": 10,
+            "border_color": self._theme["foreground"],
             # **powerline,
             # **decoration_group,
         }
 
         self._layouts = {
-            'border_focus': self._theme['color2'],
-            'border_normal': self._theme['foreground'],
-            'border_width': 2,
-            'margin': 10,
+            "border_focus": "#8aadf4",
+            "border_normal": "#b7bdf8",
+            "border_width": 2,
+            "margin": 10,
         }
 
-    @ property
+    @property
     def layouts(self):
         return self._layouts
 
-    @ property
+    @property
     def widgets(self):
         return self._widgets
 
-    @ property
+    @property
     def theme(self):
         return self._theme
 
 
 theme_list = {
-    'flat': themer(THEMES + 'flat.txt'),
-    'venom': themer(THEMES + 'venom.txt'),
-    'cyberdream': themer(THEMES + 'cyberdream.txt'),
+    "flat": themer(THEMES + "flat.txt"),
+    "venom": themer(THEMES + "venom.txt"),
+    "cyberdream": themer(THEMES + "cyberdream.txt"),
 }
 
 theme = theme_list[
     # 'venom'
     # 'flat'
-    'cyberdream'
+    "cyberdream"
 ]
