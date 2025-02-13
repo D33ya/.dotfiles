@@ -32,7 +32,11 @@ return {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-
+        -- defaults = {
+        --   mappings = {
+        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+        --   },
+        -- },
         pickers = {
           find_files = {
             hidden = false,
@@ -44,7 +48,7 @@ return {
           },
           project = {
             base_dirs = {
-              { '~/dev/', max_depth = 4 },
+              { '~/Projects/', max_depth = 1 },
             },
           },
         },

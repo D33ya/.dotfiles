@@ -24,13 +24,15 @@ return {
           ['core.dirman'] = {
             config = {
               workspaces = {
-                work_notes = '~/Documents/Notes/Work',
-                library_of_norgxandria = 'Documents/Library-of-norgxandria',
-                notes = '~/Documents/Notes',
-                progaming = '~/Documents/Notes/Programing',
-                projects = '~/Documents/Notes/Projects',
+                neorg = '~/Documents/neorg/',
+                work = '~/Documents/neorg/work/',
+                code = '~/Documents/neorg/code/',
+                projects = '~/Documents/neorg/projects/',
+                todo = '~/Documents/neorg/todo/',
+                linux = '~/Documents/neorg/linux/',
+                misc = '~/Documents/neorg/misc/',
               },
-              default_workspace = 'notes',
+              default_workspace = 'neorg',
             },
           },
           ['core.summary'] = {
@@ -43,6 +45,11 @@ return {
               engine = 'nvim-cmp',
             },
           },
+          ['core.export'] = {},
+          ['core.export.markdown'] = {},
+          ['core.latex.renderer'] = {},
+          -- ['core.presenter'] = {},
+          ['core.text-objects'] = {},
           ['core.integrations.nvim-cmp'] = {},
           ['core.integrations.telescope'] = {},
         },
@@ -52,4 +59,10 @@ return {
   },
 
   -- keymaps
+  vim.keymap.set('n', '<leader>nw', '<Plug>(neorg.telescope.switch_workspace)', {}),
+  vim.keymap.set('n', '<leader>nf', '<Plug>(neorg.telescope.find_norg_files)', {}),
+  vim.keymap.set('n', '<up>', '<Plug>(neorg.text-objects.item-up)', {}),
+  vim.keymap.set('n', '<down>', '<Plug>(neorg.text-objects.item-down)', {}),
+  vim.keymap.set({ 'o', 'x' }, 'iH', '<Plug>(neorg.text-objects.textobject.heading.inner)', {}),
+  vim.keymap.set({ 'o', 'x' }, 'aH', '<Plug>(neorg.text-objects.textobject.heading.outer)', {}),
 }
