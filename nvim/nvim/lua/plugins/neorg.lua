@@ -59,8 +59,8 @@ return {
   },
 
   -- keymaps
-  vim.keymap.set('n', '<leader>nw', '<Plug>(neorg.telescope.switch_workspace)', {}),
-  vim.keymap.set('n', '<leader>nf', '<Plug>(neorg.telescope.find_norg_files)', {}),
+  vim.keymap.set('n', '<leader>nw', '<Plug>(neorg.telescope.switch_workspace)', { desc = '[N]eorg [W]orkspaces' }),
+  vim.keymap.set('n', '<leader>nf', '<Plug>(neorg.telescope.find_norg_files)', { desc = '[N]eorg [F]iles' }),
   vim.keymap.set('n', '<up>', '<Plug>(neorg.text-objects.item-up)', {}),
   vim.keymap.set('n', '<down>', '<Plug>(neorg.text-objects.item-down)', {}),
   vim.keymap.set({ 'o', 'x' }, 'iH', '<Plug>(neorg.text-objects.textobject.heading.inner)', {}),

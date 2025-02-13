@@ -29,7 +29,7 @@ return {
             {
               desc = ' Projects',
               group = 'DiagnosticHint',
-              action = 'Telescope project cwd=',
+              action = "lua require'telescope'.extensions.project.project{ hide_workspace = true }",
               key = 'p',
             },
             {

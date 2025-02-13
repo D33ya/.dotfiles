@@ -48,7 +48,7 @@ return {
           },
           project = {
             base_dirs = {
-              { '~/Projects/', max_depth = 1 },
+              '~/Projects/',
             },
           },
         },
@@ -102,14 +102,12 @@ return {
         require('telescope-config').dotfiles()
       end, { desc = '[S]earch [D]otfiles' })
 
-      vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', { desc = '[F]ile, [B]rowser' })
-
       vim.keymap.set('n', '<leader>sp', function()
-        require('telescope').extensions.project.project { display_type = 'full' }
+        require('telescope').extensions.project.project { hide_workspace = true }
       end, { desc = '[S]earch [P]rojects' })
     end,
   },
-  { 'nvim-telescope/telescope-project.nvim' },
+  { 'nvim-telescope/telescope-project.nvim', dependencies = { 'nvim-telescope/telescope.nvim' } },
   { 'nvim-neorg/neorg-telescope' },
   {
     'nvim-telescope/telescope-file-browser.nvim',
@@ -119,7 +117,7 @@ return {
     'AckslD/nvim-neoclip.lua',
     dependencies = {
       -- you'll need at least one of these
-      -- {'nvim-telescope/telescope.nvim'},
+      { 'nvim-telescope/telescope.nvim' },
       -- {'ibhagwan/fzf-lua'},
     },
     config = function()
