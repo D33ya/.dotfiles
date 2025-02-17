@@ -57,5 +57,6 @@ return {
     opts = {},
 
     vim.keymap.set('n', '<leader>gs', '<cmd>Neogit<CR>', { silent = true, noremap = true }),
+    vim.keymap.set('n', '<leader>gc', '<cmd>Neogit commit<CR>', { silent = true, noremap = true }),
   },
 }
