@@ -54,6 +54,8 @@ return {
       'nvim-telescope/telescope.nvim', -- optional
       -- 'echasnovski/mini.pick', -- optional
     },
-    config = true,
+    opts = {},
+
+    vim.keymap.set('n', '<leader>gs', '<cmd>Neogit<CR>', { silent = true, noremap = true }),
   },
 }
