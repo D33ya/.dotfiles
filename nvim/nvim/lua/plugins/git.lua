@@ -52,7 +52,7 @@ return {
 
       -- Only one of these is needed.
       'nvim-telescope/telescope.nvim', -- optional
-      'echasnovski/mini.pick', -- optional
+      -- 'echasnovski/mini.pick', -- optional
     },
     config = true,
   },

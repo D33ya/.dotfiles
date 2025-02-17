@@ -15,5 +15,4 @@ return {
       indent = true,
     },
   },
-  --  { 'nvim-treesitter/nvim-treesitter-textobjects' },
 }
