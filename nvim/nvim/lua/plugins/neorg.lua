@@ -62,6 +62,8 @@ return {
   vim.keymap.set('n', '<leader>nw', '<Plug>(neorg.telescope.switch_workspace)', { desc = '[N]eorg [W]orkspaces' }),
   vim.keymap.set('n', '<leader>nf', '<Plug>(neorg.telescope.find_norg_files)', { desc = '[N]eorg [F]iles' }),
   vim.keymap.set('n', '<leader>ni', '<cmd>Neorg index<CR>', { desc = '[N]eorg [I]ndex' }),
+  vim.keymap.set('n', '<leader>nr', '<cmd>Neorg return<CR>', { desc = '[N]eorg [R]eturn' }),
+  vim.keymap.set('n', '<leader>ng', '<cmd>Neorg generate-workspace-summary<CR>', { desc = '[N]eorg [G]enerate workspace summary' }),
   vim.keymap.set('n', '<up>', '<Plug>(neorg.text-objects.item-up)', {}),
   vim.keymap.set('n', '<down>', '<Plug>(neorg.text-objects.item-down)', {}),
   vim.keymap.set({ 'o', 'x' }, 'iH', '<Plug>(neorg.text-objects.textobject.heading.inner)', {}),

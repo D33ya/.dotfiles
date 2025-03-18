@@ -27,4 +27,10 @@ return {
   {
     'elkowar/yuck.vim',
   },
+
+  -- vim-kitty-navigator
+  {
+    'knubie/vim-kitty-navigator',
+    build = 'cp ./*.py ~/.config/kitty/',
+  },
 }
