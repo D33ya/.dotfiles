@@ -93,7 +93,7 @@ install=(${base} ${text_editor} ${terminal} ${xorg} ${xorg_window_manager} ${way
 echo "Welcome to D33ya's setup script"
 
 echo "updating system"
-sudo pacman -Syu install $install
+sudo pacman -Syu $install
 
 
 # install programming languages
