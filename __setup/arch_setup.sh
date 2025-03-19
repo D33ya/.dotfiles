@@ -73,7 +73,6 @@ bitwarden
 )
 
 proton=(
-protonvpn
 protonmail-bridge
 proton-vpn-gtk-app
 )
