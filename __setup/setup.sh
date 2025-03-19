@@ -13,7 +13,7 @@ fi
 
 if grep -q "Arch" $release_file
 then 
-    sudo pacman -Syu
+    source ./arch_setup.sh
 fi
 
 
@@ -23,7 +23,7 @@ git submodule update
 
 # packages to install in the $HOME dir
 home=(
-    bash starship git
+    bash starship git zsh
 )
 
 # packages to install in ./config
