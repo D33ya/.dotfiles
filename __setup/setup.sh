@@ -4,10 +4,14 @@ set -euo pipefail
 # find which package manager then update
 release_file=/etc/os-release
 
+dir="$(dirname "$0")"
+cd $dir
+cd ..
+
 if grep -q "Pop" $release_file || grep -q "Ubuntu" $release_file
 then
-    sudo apt update
-    sudo apt dist-upgrade
+    echo "package manager apt"
+    sudo apt update && sudo apt dist-upgrade
 fi
 
 
@@ -16,6 +20,7 @@ then
     source ./arch_setup.sh
 fi
 
+echo "update done"
 
 # make sure we have pulled in and updated any submodules
 git submodule init
@@ -40,11 +45,12 @@ stowit() {
     # -v verbose
     # -R restow
     # -t target
-    stow -v -R -t ${usr} ${app}
+    stow -vRt ${usr} ${app}
 }
 
+
 echo ""
-echo "Stowing apps for user: ${whoami}"
+echo "Stowing apps for user: $(whoami)"
 
 # install apps available to local users and root
 for app in ${home[@]}; do
