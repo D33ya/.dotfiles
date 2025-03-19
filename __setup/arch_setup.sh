@@ -88,7 +88,7 @@ zen-browser-bin
 # install fonts
 # nvidia drivers
 
-install=(${base} ${text_editor} ${terminal} ${xorg} ${xorg_window_manager} ${wayland} ${desktop_bar} ${cli_tools} ${networking} ${audio} ${gui_progrmas} ${proton} ${display_server})
+install=(${base} ${text_editor} ${terminal} ${xorg} ${xorg_window_manager} ${wayland} ${desktop_bar} ${cli_tools} ${networking} ${audio} ${gui_programs} ${proton} ${display_server})
 
 echo "Welcome to D33ya's setup script"
 
