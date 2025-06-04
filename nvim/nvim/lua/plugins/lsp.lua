@@ -29,7 +29,7 @@ return {
                 automatic_installation = false,
                 handlers = {
                     function(server_name)
-                        local server = servers[server_name] or {}
+                        local server = opts.servers[server_name] or {}
                         server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
                         require('lspconfig')[server_name].setup(server)
                     end
