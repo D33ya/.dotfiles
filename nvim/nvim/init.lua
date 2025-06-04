@@ -1,8 +1,5 @@
 -- See `:help vim.opt`
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ';'
-
 vim.opt.termguicolors = true
 
 vim.opt.number = true
@@ -73,7 +70,3 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 999
-
-vim.g.have_nerd_font = true
-
-require('config.lazy')
