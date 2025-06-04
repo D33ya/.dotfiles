@@ -23,6 +23,33 @@ require('lazy').setup({
     spec = {
         { import = 'plugins' },
     },
-    install = { colorscheme = { 'habamax' } },
     checker = { enabled = true },
+    ui = {
+        icons = {
+            cmd = " ",
+            config = "",
+            debug = "● ",
+            event = " ",
+            favorite = " ",
+            ft = " ",
+            init = " ",
+            import = " ",
+            keys = " ",
+            lazy = "󰒲 ",
+            loaded = "●",
+            not_loaded = "○",
+            plugin = " ",
+            runtime = " ",
+            require = "󰢱 ",
+            source = " ",
+            start = " ",
+            task = "✔ ",
+            list = {
+                "●",
+                "➜",
+                "★",
+                "‒",
+            }
+        }
+    }
 })
