@@ -1,11 +1,12 @@
 return {
-    { 
-    'echasnovski/mini.nvim', version = false,
+  {
+    'echasnovski/mini.nvim',
+    version = false,
     config = function()
-        require('mini.comment').setup()
-        require('mini.pairs').setup()
-        require('mini.statusline').setup()
-        require('mini.sessions').setup()
+      require('mini.comment').setup()
+      require('mini.pairs').setup()
+      require('mini.statusline').setup()
+      require('mini.sessions').setup()
     end,
-    },
+  },
 }

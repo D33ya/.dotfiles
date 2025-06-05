@@ -2,8 +2,8 @@ return {
   {
     'saghen/blink.cmp',
     dependencies = {
-        'rafamadriz/friendly-snippets',
-        {'L3MON4D3/LuaSnip', version = 'v2.*'},
+      'rafamadriz/friendly-snippets',
+      { 'L3MON4D3/LuaSnip', version = 'v2.*' },
     },
     version = '1.*',
     ---@module 'blink.cmp'
@@ -12,20 +12,20 @@ return {
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = { preset = 'default' },
 
-      snippets = { preset = 'default'},
+      snippets = { preset = 'default' },
 
       signature = { enabled = true },
 
       appearance = {
-        nerd_font_variant = 'mono'
+        nerd_font_variant = 'mono',
       },
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
       completion = {},
-      fuzzy = { implementation = 'prefer_rust'},
+      fuzzy = { implementation = 'prefer_rust' },
     },
-    opts_extend = { "sources.default" },
+    opts_extend = { 'sources.default' },
     -- config = function(_, opts)
     --     require("blink.cmp").setup({opts, {
     --         completion = {
@@ -45,5 +45,5 @@ return {
     --         },
     --     }})
     -- end
-  }
+  },
 }
