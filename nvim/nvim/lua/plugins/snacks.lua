@@ -7,8 +7,8 @@ return {
     opts = {
       animate = {
         enabled = true,
-        duration = 50,
-        easing = 'inOutCubic',
+        -- duration = 50,
+        -- easing = 'inOutCubic',
       },
       bigfile = { enabled = true },
       dashboard = { enabled = true },
