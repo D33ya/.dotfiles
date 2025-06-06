@@ -1,17 +1,40 @@
 return {
   {
     'folke/noice.nvim',
-    open_mapping = [[<t>]],
+    event = 'VeryLazy',
     opts = {
-      -- add any options here
+      cmdline = {
+        view = 'cmdline',
+      },
+      views = {
+        cmdline = {
+          backend = 'popup',
+          relative = 'editor',
+          position = {
+            row = '0%',
+            col = 0,
+          },
+          size = {
+            height = 'auto',
+            width = '100%',
+          },
+          border = {
+            style = 'none',
+          },
+          win_options = {
+            winhighlight = {
+              Normal = 'NoiceCmdline',
+              IncSearch = '',
+              CurSearch = '',
+              Search = '',
+            },
+          },
+        },
+      },
     },
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       'MunifTanjim/nui.nvim',
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      'rcarriga/nvim-notify',
     },
   },
 }
