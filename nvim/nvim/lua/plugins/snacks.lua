@@ -7,8 +7,8 @@ return {
     opts = {
       animate = {
         enabled = true,
-        -- duration = 50,
-        -- easing = 'inOutCubic',
+        duration = 50,
+        easing = 'inOutCubic',
       },
       bigfile = { enabled = true },
       dashboard = {
@@ -107,7 +107,7 @@ return {
       picker = { enabled = true },
       quickfile = { enabled = true },
       scope = { enabled = true },
-      scroll = { enabled = true },
+      -- scroll = { enabled = true },
       statuscolumn = { enabled = true },
       toggle = {
         enabled = true,
