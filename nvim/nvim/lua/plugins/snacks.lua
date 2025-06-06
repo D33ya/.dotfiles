@@ -11,7 +11,86 @@ return {
         -- easing = 'inOutCubic',
       },
       bigfile = { enabled = true },
-      dashboard = { enabled = true },
+      dashboard = {
+        width = 70,
+        pane_gap = 6,
+        sections = {
+          enabled = true,
+          { section = 'header' },
+          {
+            pane = 2,
+            section = 'terminal',
+            cmd = '/home/d33ya/.scripts/color-scripts/color-scripts/ghosts',
+            height = 10,
+            padding = 1,
+          },
+          { section = 'keys', gap = 1, padding = 1 },
+          {
+            pane = 2,
+            icon = ' ',
+            desc = 'Browse Repo',
+            padding = 1,
+            key = 'b',
+            action = function()
+              Snacks.gitbrowse()
+            end,
+          },
+          function()
+            local in_git = Snacks.git.get_root() ~= nil
+            local cmds = {
+              {
+                title = 'Notifications',
+                cmd = 'gh notify -asn 5',
+                action = function()
+                  vim.ui.open 'https://github.com/notifications'
+                end,
+                key = 'n',
+                icon = ' ',
+                height = 5,
+                enabled = true,
+              },
+              {
+                title = 'Open Issues',
+                cmd = 'gh issue list -L 3',
+                key = 'i',
+                action = function()
+                  vim.fn.jobstart('gh issue list --web', { detach = true })
+                end,
+                icon = ' ',
+                height = 7,
+              },
+              {
+                icon = ' ',
+                title = 'Open PRs',
+                cmd = 'gh pr list -L 3',
+                key = 'P',
+                action = function()
+                  vim.fn.jobstart('gh pr list --web', { detach = true })
+                end,
+                height = 7,
+              },
+              {
+                icon = ' ',
+                title = 'Git Status',
+                cmd = 'git --no-pager diff --stat -B -M -C',
+                height = 7,
+              },
+            }
+            return vim.tbl_map(function(cmd)
+              return vim.tbl_extend('force', {
+                pane = 2,
+                section = 'terminal',
+                enabled = in_git,
+                padding = 1,
+                ttl = 5 * 60,
+                indent = 3,
+              }, cmd)
+            end, cmds)
+          end,
+          { section = 'projects', padding = 1, gap = 0.5 },
+          { section = 'startup' },
+        },
+      },
       explorer = { enabled = true },
       indent = { enabled = true },
       input = {
