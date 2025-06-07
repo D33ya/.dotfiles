@@ -12,16 +12,16 @@ return {
       },
       bigfile = { enabled = true },
       dashboard = {
-        width = 70,
-        pane_gap = 6,
+        enabled = true,
+        width = 80,
+        pane_gap = 4,
         sections = {
-          enabled = true,
           { section = 'header' },
           {
             pane = 2,
             section = 'terminal',
-            cmd = '/home/d33ya/.scripts/color-scripts/color-scripts/ghosts',
-            height = 10,
+            cmd = 'colorscript -e six',
+            height = 5,
             padding = 1,
           },
           { section = 'keys', gap = 1, padding = 1 },
@@ -40,7 +40,7 @@ return {
             local cmds = {
               {
                 title = 'Notifications',
-                cmd = 'gh notify -asn 5',
+                cmd = 'gh notify -an 5 -s | cut -b-150',
                 action = function()
                   vim.ui.open 'https://github.com/notifications'
                 end,
@@ -54,10 +54,10 @@ return {
                 cmd = 'gh issue list -L 3',
                 key = 'i',
                 action = function()
-                  vim.fn.jobstart('gh issue list --web', { detach = true })
+                  vim.fn.jobstart('gh issue list', { detach = true })
                 end,
                 icon = ' ',
-                height = 7,
+                height = 5,
               },
               {
                 icon = ' ',
@@ -87,7 +87,7 @@ return {
               }, cmd)
             end, cmds)
           end,
-          { section = 'projects', padding = 1, gap = 0.5 },
+          { section = 'projects', padding = 1 },
           { section = 'startup' },
         },
       },
