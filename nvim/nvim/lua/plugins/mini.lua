@@ -15,7 +15,7 @@ return {
       require('mini.git').setup()
       require('mini.sessions').setup {}
       -- appearance
-      require('mini.animate').setup()
+      -- require('mini.animate').setup()
       require('mini.statusline').setup {
         content = {
           function()
