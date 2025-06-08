@@ -8,19 +8,19 @@ dir="$(dirname "$0")"
 cd $dir
 cd ..
 
-if grep -q "Pop" $release_file || grep -q "Ubuntu" $release_file
-then
-    echo "package manager apt"
-    sudo apt update && sudo apt dist-upgrade
-fi
-
-
-if grep -q "Arch" $release_file
-then 
-    source ./arch_setup.sh
-fi
-
-echo "update done"
+# if grep -q "Pop" $release_file || grep -q "Ubuntu" $release_file
+# then
+#     echo "package manager apt"
+#     sudo apt update && sudo apt dist-upgrade
+# fi
+# 
+# 
+# if grep -q "Arch" $release_file
+# then 
+#     source ./arch_setup.sh
+# fi
+# 
+# echo "update done"
 
 # make sure we have pulled in and updated any submodules
 git submodule init
