@@ -1,4 +1,5 @@
 #!/bin/env bash
 
-autorandr -c
 picom -b
+autorandr -c
+wal -R

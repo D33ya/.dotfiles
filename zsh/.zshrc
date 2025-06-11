@@ -25,12 +25,11 @@ function y() {
 # env variables
 export EDITOR="nvim"
 export VISUAL="nvim"
+
 # path
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/Documents/build/zig-linux-x86_64-0.14.0-dev.3427+dea72d15d/
-# Dircolors
-alias ls='ls --color=auto'
-# eval "$(dircolors ~/.from_src/themes/dircolors/catpputccin)"
+
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # Starship for prompt
@@ -39,8 +38,9 @@ eval "$(starship init zsh)"
 # Zoxide
 eval "$(zoxide init zsh)"
 
-# Syntax highlighting colors
-# source ~/.from_src/themes/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+# colors
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
 
 # Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -50,4 +50,5 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
 alias py="ipython"
-
+alias ls="lsd"
+alias cat="bat"

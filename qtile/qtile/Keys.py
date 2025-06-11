@@ -45,7 +45,7 @@ keys = [
     Key("M-<Return>", lazy.spawn(terminal), desc="Launch terminal"),
     Key(
         "M-C-<Return>",
-        lazy.spawn("launcher"),
+        lazy.spawn("rofi -show drun"),
         desc="Launch Rofi",
     ),
     # Toggle between different layouts as defined below
@@ -63,7 +63,6 @@ keys = [
     ),
     Key("M-C-r", lazy.reload_config(), desc="Reload the config"),
     Key("M-C-q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key("M-r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
 # Drag floating layouts.

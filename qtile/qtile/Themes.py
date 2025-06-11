@@ -1,10 +1,23 @@
-from re import findall
-from os import path
 from io import open
+from os import path
+from re import findall
+
+from libqtile.lazy import lazy
 from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 
+colors = []
 
-THEMES = path.expanduser("~/.config/qtile/themes/")
+
+def load_colors(cache):
+    with open(cache, "r") as file:
+        for i in range(8):
+            colors.append(file.readline().strip())
+    colors.append("#ffffff")
+    lazy.reload()
+
+
+load_colors(cache)
+
 
 powerline = {"decorations": [PowerLineDecoration()]}
 decoration_group = {
@@ -15,7 +28,7 @@ decoration_group = {
             group=True,
             filled=True,
             use_widget_background=True,
-            background="#00000000",
+            background=colors[0],
         )
     ],
     # 'padding': 10,
@@ -24,7 +37,7 @@ decoration_group = {
 
 class themer:
     def __init__(self, path):
-        theme_file = open(path, "r")
+        cache = "/home/d33ya/.cache/wal/colors"
         self._theme = dict(findall(r"[^!]\*?(\w*)\:\s*#?(.*)", theme_file.read()))
         theme_file.close()
 
@@ -58,16 +71,3 @@ class themer:
     @property
     def theme(self):
         return self._theme
-
-
-theme_list = {
-    "flat": themer(THEMES + "flat.txt"),
-    "venom": themer(THEMES + "venom.txt"),
-    "cyberdream": themer(THEMES + "cyberdream.txt"),
-}
-
-theme = theme_list[
-    # 'venom'
-    # 'flat'
-    "cyberdream"
-]

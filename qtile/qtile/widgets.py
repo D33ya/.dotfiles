@@ -1,7 +1,7 @@
-from qtile_extras.widget.groupbox2 import GroupBoxRule, ScreenRule
 from qtile_extras import widget
-from Themes import theme as qtile_theme
 from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
+from qtile_extras.widget.groupbox2 import GroupBoxRule, ScreenRule
+from Themes import theme as qtile_theme
 
 theme = qtile_theme.theme
 

@@ -1,16 +1,18 @@
 from Keys import keys
-from libqtile.config import Group, ScratchPad, DropDown
+from libqtile.config import DropDown
 from libqtile.config import EzKey as Key
+from libqtile.config import Group, ScratchPad
 from libqtile.lazy import lazy
-from screeninfo import get_monitors
 
-num_of_screens = len(get_monitors())
-num_of_groups = 4
-total_groups = num_of_groups * num_of_screens
+# from screeninfo import get_monitors
+
+# num_of_screens = len(get_monitors())
+# num_of_groups = 4
+# total_groups = num_of_groups * num_of_screens
 
 group_names = ""
 
-for i in range(total_groups):
+for i in range(0, 6):
     group_names = group_names + str(i + 1)
 
 
