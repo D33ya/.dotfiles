@@ -1,11 +1,3 @@
-# TODO:
-#   * Compleate widget layout and functionality for the bar.
-#   * Configure Screens to work between different monitor setups.
-#   * Quick theme changing with hotkeys.
-#   * Build my own widget to track MNUFC games.
-#   * Configure my layouts, and groups.
-#   * Configure key bindings.
-
 import os
 import subprocess
 
@@ -13,20 +5,22 @@ from Groups import groups
 from Keys import keys, mouse
 from Layouts import floating_layout, init_layouts
 from libqtile import hook, qtile
-
-# from catppuccin import PALETTE
+from libqtile.lazy import LazyCall, lazy
 from qtile_extras.layout.decorations.borders import GradientBorder
 from Screens import screens
 
-# colors = PALETTE.macchiato.colors
+# from catppuccin import PALETTE
+from Themes import theme
+
+# requires image magick
 
 layout_defaults = dict(
     border_focus=GradientBorder(
-        # colours=[colors.green.hex, colors.maroon.hex, colors.red.hex],
+        colours=[theme.colors[4], theme.colors[5], theme.colors[6]],
         radial=False,
         points=[(0, 0), (1, 1)],
     ),
-    # border_normal=colors.overlay0.hex,
+    border_normal=theme.colors[7],
     border_width=2,
     margin=8,
 )
@@ -36,7 +30,7 @@ widget_defaults = dict(
     fontsize=16,
     padding=4,
     margin=10,
-    # background=PALETTE.macchiato.colors.crust.hex,
+    background=theme.colors[0],
 )
 
 extension_defaults = widget_defaults.copy()
@@ -65,10 +59,14 @@ auto_minimize = True
 
 wmname = "qtile"
 
-# HOOK startup
-
 
 @hook.subscribe.startup_once
 def autostart():
     script = os.path.expanduser("~/.config/qtile/autostart.sh")
+    subprocess.run(script)
+
+
+@hook.subscribe.user("color")
+def hooked_function():
+    script = os.path.expanduser("~/.config/qtile/icons/volume/memory/change_color.sh")
     subprocess.run(script)

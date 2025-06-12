@@ -29,6 +29,7 @@ export VISUAL="nvim"
 # path
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/Documents/build/zig-linux-x86_64-0.14.0-dev.3427+dea72d15d/
+export PATH=$PATH:~/.scripts/bin/
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
