@@ -1,11 +1,24 @@
+format = """
+[┌─\\[](33)$directory$git_branch$git_status[\\]](33) $cmd_duration$fill[\\(](33)$username$hostname[\\)](33)
+[└─\\[](33)$time[\\]-](33)$character"""
+
 [aws]
 symbol = "  "
 
 [buf]
 symbol = " "
 
+[bun]
+symbol = " "
+
 [c]
 symbol = " "
+
+[cpp]
+symbol = " "
+
+[cmake]
+symbol = " "
 
 [conda]
 symbol = " "
@@ -15,6 +28,9 @@ symbol = " "
 
 [dart]
 symbol = " "
+
+[deno]
+symbol = " "
 
 [directory]
 read_only = " 󰌾"
@@ -31,11 +47,20 @@ symbol = " "
 [fennel]
 symbol = " "
 
+[fill]
+symbol= '.'
+
 [fossil_branch]
 symbol = " "
 
+[gcloud]
+symbol = "  "
+
 [git_branch]
 symbol = " "
+
+[git_commit]
+tag_symbol = '  '
 
 [golang]
 symbol = " "
@@ -93,6 +118,7 @@ Amazon = " "
 Android = " "
 Arch = " "
 Artix = " "
+CachyOS = " "
 CentOS = " "
 Debian = " "
 DragonFly = " "
@@ -114,6 +140,7 @@ MidnightBSD = " "
 Mint = " "
 NetBSD = " "
 NixOS = " "
+Nobara = " "
 OpenBSD = "󰈺 "
 openSUSE = " "
 OracleLinux = "󰌷 "
@@ -142,6 +169,9 @@ symbol = " "
 [pijul_channel]
 symbol = " "
 
+[pixi]
+symbol = "󰏗 "
+
 [python]
 symbol = " "
 
@@ -160,5 +190,14 @@ symbol = " "
 [swift]
 symbol = " "
 
+[time]
+disabled = false
+use_12hr = false
+format = '[$time]($style)'
+time_format = "%a %b %d %R"
+
 [zig]
 symbol = " "
+
+[gradle]
+symbol = " "

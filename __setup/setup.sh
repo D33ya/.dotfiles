@@ -28,12 +28,12 @@ git submodule update
 
 # packages to install in the $HOME dir
 home=(
-    bash starship git zsh
+    bash git zsh
 )
 
 # packages to install in ./config
 config=(
-    nvim yazi btop cosmic gh hypr kitty lazygit qtile ranger
+    nvim yazi btop cosmic gh hypr kitty lazygit qtile ranger starship
 )
 
 pwd

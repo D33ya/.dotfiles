@@ -17,6 +17,7 @@ return {
       -- appearance
       -- require('mini.animate').setup()
       require('mini.statusline').setup {
+        use_icons = true,
         content = {
           function()
             local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }

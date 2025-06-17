@@ -113,12 +113,50 @@ return {
         enabled = true,
         which_key = true,
         notify = true,
+        inlay_hints = true,
       },
       words = { enabled = true },
-      zen = { enabled = true },
+      zen = {
+        enabled = true,
+        toggles = {
+          dim = true,
+          git_digns = false,
+          mini_diff_signs = false,
+          diagnostics = false,
+          inlay_hints = false,
+        },
+        show = {
+          statusline = false,
+          tabline = false,
+        },
+        win = { style = 'zen' },
+        zoom = {
+          toggles = {},
+          show = { statusline = false, tabline = false },
+          win = {
+            backdrop = true,
+            width = 0,
+          },
+        },
+      },
       styles = {
-        notification = {
-          -- wo = { wrap = true } -- Wrap notifications
+        zen = {
+          enter = true,
+          fixbuf = false,
+          relative = 'editor',
+          minimal = false,
+          width = 120,
+          height = 0,
+          backdrop = {
+            transparent = false,
+            blend = 40,
+          },
+          keys = { q = false },
+          zindex = 40,
+          wo = {
+            winhighlight = 'NormalFloat:Normal',
+          },
+          w = { snacks_main = true },
         },
       },
     },

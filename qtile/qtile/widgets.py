@@ -2,7 +2,6 @@ from libqtile import widget
 from qtile_extras import widget as extra
 from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 from qtile_extras.widget.groupbox2 import GroupBoxRule, ScreenRule
-
 from Themes import theme
 
 # Dependencies:
@@ -44,7 +43,6 @@ def set_label(rule, box):
 
 
 volume = widget.Volume(
-    background=theme.colors[0],
     emoji=True,
     emoji_list=["", "", "", ""],
     scroll=True,
@@ -54,44 +52,37 @@ volume = widget.Volume(
 network = extra.IWD()
 
 bluetooth = extra.Bluetooth(
-    background=theme.colors[0],
     default_text="",
+    fontsize=20,
     default_timeout=10,
 )
 
-status = extra.StatusNotifier(
-    background=theme.colors[0],
-)
+status = extra.StatusNotifier()
 
 power = extra.UPowerWidget(
     battery_name="BAT1",
     # padding_x=4,
-    background=theme.colors[0],
+    border_charge_colour=theme.colors[2],
+    border_color=theme.colors[2],
+    fill_charge=theme.colors[1],
 )
 
 clock = widget.Clock(
-    background=theme.colors[0],
-    foreground=theme.colors[1],
-    format="%b %A %-d %H:%M",
+    format="%A %b %-d %H:%M",
 )
 
-space = widget.Spacer(
-    background=theme.colors[0],
-)
+space = widget.Spacer()
 
-sep = widget.Sep(
-    background=theme.colors[0],
-    foreground=theme.colors[1],
-)
+sep = widget.Sep()
 
 group = extra.GroupBox2(
     margin=2,
-    padding=4,
+    padding=2,
+    fontsize=18,
     rules=[
         GroupBoxRule().when(func=set_label),
         GroupBoxRule(text_colour=theme.colors[1]).when(screen=ScreenRule.ANY),
         GroupBoxRule(text_colour=theme.colors[8]).when(screen=ScreenRule.OTHER),
         GroupBoxRule(text_colour=theme.colors[8]).when(),
     ],
-    background=theme.colors[0],
 )

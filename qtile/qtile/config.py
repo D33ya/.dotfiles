@@ -26,11 +26,12 @@ layout_defaults = dict(
 )
 
 widget_defaults = dict(
-    font="JetBrainsMono Nerd Font",
-    fontsize=16,
+    font="BigBlueTerm437 Nerd Font Mono",
+    fontsize=14,
     padding=4,
-    margin=10,
+    margin=4,
     background=theme.colors[0],
+    foreground=theme.colors[1],
 )
 
 extension_defaults = widget_defaults.copy()
