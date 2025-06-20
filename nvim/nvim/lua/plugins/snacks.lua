@@ -91,7 +91,7 @@ return {
           { section = 'startup' },
         },
       },
-      explorer = { enabled = true },
+      explorer = { enabled = false },
       indent = { enabled = true },
       input = {
         enabled = true,
@@ -104,7 +104,16 @@ return {
         enabled = true,
         timeout = 3000,
       },
-      picker = { enabled = true },
+      picker = {
+        enabled = true,
+        preset = 'ivy',
+        layout = {
+          layout = {
+            position = 'bottom',
+            border = 'single',
+          },
+        },
+      },
       quickfile = { enabled = true },
       scope = { enabled = true },
       -- scroll = { enabled = true },
@@ -139,6 +148,7 @@ return {
           },
         },
       },
+      ---@type table<string, snacks.win.Config>
       styles = {
         zen = {
           enter = true,
@@ -197,14 +207,6 @@ return {
         end,
         desc = 'Notification History',
       },
-      {
-        '<leader>e',
-        function()
-          Snacks.explorer()
-        end,
-        desc = 'File Explorer',
-      },
-      -- find
       {
         '<leader>fb',
         function()

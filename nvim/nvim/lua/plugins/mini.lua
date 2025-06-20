@@ -13,7 +13,9 @@ return {
       -- general work flow
       require('mini.diff').setup()
       require('mini.git').setup()
-      require('mini.sessions').setup {}
+      require('mini.sessions').setup()
+      require('mini.files').setup()
+      require('mini.misc').setup()
       -- appearance
       -- require('mini.animate').setup()
       require('mini.statusline').setup {
