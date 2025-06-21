@@ -23,7 +23,11 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('grn', vim.lsp.buf.rename, 'Rename Symbol')
+          map('gtd', vim.lsp.buf.type_definition, 'Type Definition')
+          map('gd', vim.lsp.buf.definition, 'Definition')
+          map('gD', vim.lsp.buf.declaration, 'Declaration')
+          map('gi', vim.lsp.buf.implementation, 'Implementation')
         end,
       })
       local capabilities = require('blink.cmp').get_lsp_capabilities()
