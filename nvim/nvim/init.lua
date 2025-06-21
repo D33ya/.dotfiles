@@ -1,4 +1,3 @@
--- See `:help vim.opt`
 --
 vim.g.mapleader = ' '
 
@@ -78,5 +77,3 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 999
 
 require 'config.lazy'
-
--- MiniMisc.setup_termbg_sync()

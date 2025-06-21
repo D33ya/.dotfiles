@@ -15,6 +15,8 @@ return {
       require('mini.git').setup()
       require('mini.sessions').setup()
       require('mini.files').setup()
+      require('mini.pick').setup()
+      require('mini.extra').setup()
       require('mini.misc').setup()
       -- appearance
       -- require('mini.animate').setup()

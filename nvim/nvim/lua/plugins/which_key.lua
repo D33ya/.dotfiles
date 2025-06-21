@@ -2,10 +2,77 @@ return {
   {
     'folke/which-key.nvim',
     event = 'VeryLazy',
+    opts_extend = { 'spec' },
     opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
+      preset = 'helix',
+      defaults = {},
+      spec = {
+        {
+          mode = { 'n', 'v' },
+          { '<leader>c', group = 'Code' },
+          { '<leader>d', group = 'Diagnostics' },
+          {
+            '<leader>e',
+            function()
+              MiniFiles.open()
+            end,
+            desc = 'Explore Files',
+          },
+          { '<leader>f', group = 'Find' },
+          { '<leader>g', group = 'Git' },
+          { '<leader>q', group = 'Quit' },
+          { '<leader>s', group = 'Search' },
+          { '<leader>u', group = 'ui', icon = { icon = '󰙵 ', color = 'cyan' } },
+          { '[', group = 'prev' },
+          { ']', group = 'next' },
+          { 'g', group = 'goto' },
+          { 'gs', group = 'surround' },
+          { 'z', group = 'fold' },
+          {
+            '<leader>b',
+            group = 'buffer',
+            expand = function()
+              return require('which-key.extras').expand.buf()
+            end,
+          },
+          {
+            '<leader>w',
+            group = 'windows',
+            proxy = '<c-w>',
+            expand = function()
+              return require('which-key.extras').expand.win()
+            end,
+          },
+        },
+        {
+          '<leader>ff',
+          function()
+            MiniPick.builtin.files()
+          end,
+          desc = 'Files',
+        },
+        {
+          '<leader>gb',
+          function()
+            MiniExtra.pickers.git_branches { scope = 'local' }
+          end,
+          desc = 'Branches',
+        },
+        {
+          '<leader>gc',
+          function()
+            MiniExtra.pickers.git_commits()
+          end,
+          desc = 'Commits',
+        },
+        {
+          '<leader>gh',
+          function()
+            MiniExtra.pickers.git_hunks { scope = 'staged' }
+          end,
+          desc = 'Hunks',
+        },
+      },
     },
     keys = {
       {
@@ -13,7 +80,7 @@ return {
         function()
           require('which-key').show { global = false }
         end,
-        desc = 'Buffer Local Keymaps (which-key)',
+        desc = 'Buffer Keymaps (which-key)',
       },
     },
   },
