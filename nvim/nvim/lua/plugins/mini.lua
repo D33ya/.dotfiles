@@ -10,7 +10,10 @@ return {
       require('mini.comment').setup()
       require('mini.splitjoin').setup()
       require('mini.surround').setup()
+      require('mini.splitjoin').setup()
       -- general work flow
+      require('mini.bracketed').setup()
+      require('mini.jump').setup()
       require('mini.diff').setup()
       require('mini.git').setup()
       require('mini.sessions').setup()
