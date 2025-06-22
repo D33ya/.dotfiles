@@ -105,7 +105,7 @@ return {
         timeout = 3000,
       },
       picker = {
-        enabled = true,
+        enabled = false,
         preset = 'ivy',
         layout = {
           layout = {
