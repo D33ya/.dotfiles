@@ -6,7 +6,7 @@ return {
     ---@type snacks.Config
     opts = {
       animate = {
-        enabled = true,
+        enabled = false,
         duration = 50,
         easing = 'inOutCubic',
       },
@@ -92,7 +92,7 @@ return {
         },
       },
       explorer = { enabled = false },
-      indent = { enabled = true },
+      indent = { enabled = false },
       input = {
         enabled = true,
         bo = {
@@ -154,12 +154,12 @@ return {
           enter = true,
           fixbuf = false,
           relative = 'editor',
-          minimal = false,
-          width = 120,
+          minimal = true,
+          width = 140,
           height = 0,
           backdrop = {
             transparent = false,
-            blend = 40,
+            blend = 20,
           },
           keys = { q = false },
           zindex = 40,

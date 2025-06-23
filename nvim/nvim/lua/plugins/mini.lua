@@ -3,7 +3,7 @@ return {
     'echasnovski/mini.nvim',
     version = false,
     config = function()
-      -- text editing
+      -- text editing}
       require('mini.ai').setup()
       require('mini.pairs').setup()
       require('mini.move').setup()
@@ -22,7 +22,19 @@ return {
       require('mini.extra').setup()
       require('mini.misc').setup()
       -- appearance
-      -- require('mini.animate').setup()
+      require('mini.animate').setup()
+      require('mini.icons').setup()
+      require('mini.indentscope').setup {
+        options = {
+          draw = {
+            animation = require('mini.indentscope').gen_animation.quadratic { easing = 'in', duration = 750, unit = 'total' },
+          },
+          border = 'both',
+          indent_at_cursor = true,
+          try_as_border = true,
+        },
+        symbol = '╎',
+      }
       require('mini.statusline').setup {
         use_icons = true,
         content = {
@@ -49,7 +61,6 @@ return {
           end,
         },
       }
-      require('mini.icons').setup()
     end,
   },
 }

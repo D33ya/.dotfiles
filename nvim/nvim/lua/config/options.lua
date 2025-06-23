@@ -6,6 +6,8 @@ vim.g.have_nerd_font = true
 
 vim.opt.termguicolors = true
 
+vim.wo.winblend = 10
+
 vim.opt.number = true
 
 vim.opt.relativenumber = true
