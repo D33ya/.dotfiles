@@ -53,3 +53,4 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias py="ipython"
 alias ls="lsd"
 alias cat="bat"
+

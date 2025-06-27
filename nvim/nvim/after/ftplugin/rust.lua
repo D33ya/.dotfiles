@@ -3,14 +3,6 @@ vim.keymap.set('n', '<leader>ca', function()
   vim.cmd.RustLsp 'codeAction' -- supports rust-analyzer's grouping
   -- or vim.lsp.buf.codeAction() if you don't want grouping.
 end, { silent = true, buffer = bufnr, desc = 'Action' })
-vim.keymap.set(
-  'n',
-  'K', -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
-  function()
-    vim.cmd.RustLsp { 'hover', 'actions' }
-  end,
-  { silent = true, buffer = bufnr }
-)
 vim.keymap.set('n', '<leader>cr', function()
   vim.cmd.RustLsp 'runnables'
 end, { silent = true, buffer = bufnr, desc = 'Run' })
@@ -26,5 +18,12 @@ wk.add {
     desc = 'Open Docs',
     silent = true,
     buffer = bufnr,
+  },
+  {
+    '<leader>ce',
+    function()
+      vim.cmd.RustLsp('explainError', 'cycle')
+    end,
+    desc = 'Explain Errors',
   },
 }
