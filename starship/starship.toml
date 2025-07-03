@@ -54,7 +54,7 @@ symbol = " "
 symbol = " "
 
 [fill]
-symbol= '⚋'
+symbol= '-'
 style =  "#867462"
 
 [fossil_branch]
