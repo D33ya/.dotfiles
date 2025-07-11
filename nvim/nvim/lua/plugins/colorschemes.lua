@@ -8,6 +8,7 @@ return {
     },
     config = function(_, opts)
       require('catppuccin').setup(opts)
+      vim.cmd.colorscheme 'macchiato'
     end,
   },
   {
@@ -32,7 +33,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'melange'
+      -- vim.cmd.colorscheme 'melange'
     end,
   },
 }
