@@ -1,4 +1,4 @@
-# Lines configured by zsh-newuser-install
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -54,3 +54,7 @@ alias py="ipython"
 alias ls="lsd"
 alias cat="bat"
 
+
+# if uwsm check may-start; then
+    # exec uwsm start hyprland-uwsm.desktop
+# fi

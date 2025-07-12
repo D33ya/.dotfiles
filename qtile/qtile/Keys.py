@@ -44,7 +44,7 @@ keys = [
     ),
     Key("M-<Return>", lazy.spawn(terminal), desc="Launch terminal"),
     Key(
-        "M-C-<Return>",
+        "M-r",
         lazy.spawn("rofi -show drun"),
         desc="Launch Rofi",
     ),
