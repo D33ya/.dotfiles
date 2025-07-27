@@ -4,6 +4,7 @@ from libqtile.lazy import lazy
 
 mod = "mod4"
 terminal = "kitty"
+lock = "i3lock"
 
 keys = [
     Key("M-i", lazy.group["scratchpad"].dropdown_toggle("term")),
@@ -61,6 +62,7 @@ keys = [
         lazy.window.toggle_floating(),
         desc="Toggle floating on the focused window",
     ),
+    Key("M-l", lazy.spawn(lock), desc="Lock screen"),
     Key("M-C-r", lazy.reload_config(), desc="Reload the config"),
     Key("M-C-q", lazy.shutdown(), desc="Shutdown Qtile"),
 ]
